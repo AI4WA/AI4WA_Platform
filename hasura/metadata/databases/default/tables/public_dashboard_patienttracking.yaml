@@ -1,0 +1,45 @@
+table:
+  name: dashboard_patienttracking
+  schema: public
+array_relationships:
+  - name: dashboard_imagedata
+    using:
+      foreign_key_constraint_on:
+        column: patient_tracking_id
+        table:
+          name: dashboard_imagedata
+          schema: public
+insert_permissions:
+  - role: anonymous
+    permission:
+      check: {}
+      columns:
+        - id
+        - count
+        - description
+        - created_at
+        - updated_at
+    comment: ""
+select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - count
+        - description
+        - created_at
+        - updated_at
+      filter: {}
+    comment: ""
+update_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - id
+        - count
+        - description
+        - created_at
+        - updated_at
+      filter: {}
+      check: {}
+    comment: ""

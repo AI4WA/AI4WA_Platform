@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'import_export',
     "crime",
     'drf_yasg',
+    "dashboard",
 ]
 
 MIDDLEWARE = [

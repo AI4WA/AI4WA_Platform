@@ -1,1 +1,3 @@
 - "!include public_auth_user.yaml"
+- "!include public_dashboard_imagedata.yaml"
+- "!include public_dashboard_patienttracking.yaml"
