@@ -1,0 +1,39 @@
+name: Deployment
+on:
+  push:
+    branches:
+      - prod
+      - develop
+      - main
+
+jobs:
+  platform:
+    name: Deploy Platform
+    runs-on: ubuntu-latest
+    steps:
+      - name: Package the codebase
+        uses: actions/checkout@v1
+      - name: Zip the whole codebase
+        run: |
+          tar -cvf platform.tar .
+      - name: Upload the codebase
+        uses: appleboy/scp-action@master
+        with:
+          host: 167.179.66.204
+          username: root
+          password: ${{ secrets.SERVER_PASSWORD }}
+          port: 22
+          source: "platform.tar"
+          target: /root/
+      - name: Build and Restart backend
+        uses: appleboy/ssh-action@master
+        with:
+          host: 115.146.85.108
+          username: root
+          password: ${{ secrets.SERVER_PASSWORD  }}
+          port: 22
+          script: |
+            cd /root/
+            tar -xvf platform.tar
+            rm platform.tar
+            docker compose up -d
