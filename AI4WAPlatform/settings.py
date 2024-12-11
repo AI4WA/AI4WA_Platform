@@ -154,4 +154,9 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Next.js default port
     "http://127.0.0.1:3000",
+    "https://dj.demo.ai4wa.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://dj.demo.ai4wa.com',
 ]
