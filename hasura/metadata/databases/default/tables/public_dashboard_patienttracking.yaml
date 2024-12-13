@@ -20,8 +20,28 @@ insert_permissions:
         - created_at
         - updated_at
     comment: ""
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - id
+        - count
+        - description
+        - created_at
+        - updated_at
+    comment: ""
 select_permissions:
   - role: anonymous
+    permission:
+      columns:
+        - id
+        - count
+        - description
+        - created_at
+        - updated_at
+      filter: {}
+    comment: ""
+  - role: user
     permission:
       columns:
         - id
@@ -42,4 +62,20 @@ update_permissions:
         - updated_at
       filter: {}
       check: {}
+    comment: ""
+  - role: user
+    permission:
+      columns:
+        - id
+        - count
+        - description
+        - created_at
+        - updated_at
+      filter: {}
+      check: {}
+    comment: ""
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}
     comment: ""
