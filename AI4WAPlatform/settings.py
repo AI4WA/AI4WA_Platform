@@ -40,12 +40,14 @@ INSTALLED_APPS = [
     'corsheaders',  # Add this
     'rest_framework',
     'rest_framework.authtoken',
+    'django.contrib.gis',
     'rest_framework_simplejwt',
     'import_export',
     "crime",
     'drf_yasg',
     "dashboard",
     "core",
+    "wamex",
 ]
 
 MIDDLEWARE = [
