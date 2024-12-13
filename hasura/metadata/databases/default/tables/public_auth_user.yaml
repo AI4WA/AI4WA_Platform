@@ -1,3 +1,11 @@
 table:
   name: auth_user
   schema: public
+array_relationships:
+  - name: wamex_chats
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: wamex_chat
+          schema: public

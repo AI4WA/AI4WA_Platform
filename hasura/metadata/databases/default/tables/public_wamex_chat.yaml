@@ -1,40 +1,32 @@
 table:
-  name: dashboard_imagedata
+  name: wamex_chat
   schema: public
 object_relationships:
-  - name: dashboard_patienttracking
+  - name: auth_user
     using:
-      foreign_key_constraint_on: patient_tracking_id
+      foreign_key_constraint_on: user_id
 insert_permissions:
   - role: user
     permission:
       check: {}
       columns:
         - id
-        - patient_tracking_id
-        - image
+        - user_id
+        - messages
         - created_at
         - updated_at
+        - chat_uuid
     comment: ""
 select_permissions:
-  - role: anonymous
-    permission:
-      columns:
-        - id
-        - patient_tracking_id
-        - image
-        - created_at
-        - updated_at
-      filter: {}
-    comment: ""
   - role: user
     permission:
       columns:
         - id
-        - patient_tracking_id
-        - image
+        - user_id
+        - messages
         - created_at
         - updated_at
+        - chat_uuid
       filter: {}
     comment: ""
 update_permissions:
@@ -42,10 +34,11 @@ update_permissions:
     permission:
       columns:
         - id
-        - patient_tracking_id
-        - image
+        - user_id
+        - messages
         - created_at
         - updated_at
+        - chat_uuid
       filter: {}
       check: {}
     comment: ""
