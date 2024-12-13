@@ -44,6 +44,7 @@ urlpatterns = [
     # Your existing URLs
     path("admin/", admin.site.urls),
     path('crimes/', include('crime.urls')),
+    path('wamex/', include('wamex.urls')),
 
     # Swagger URLs
     re_path(r'^swagger(?P<format>\.json|\.yaml)$',
